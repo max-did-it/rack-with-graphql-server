@@ -1,0 +1,68 @@
+ type Query {
+   getUser(id: ID!, email: String): User
+   getUsers: [User]
+ }
+type Mutation {
+  createTest(input: TetstInput!): Test
+  updateTest(id: ID!, input: TetstInput): Test
+  deleteTest(id: ID!): ID
+  
+  createQuestion(input: QuestionInput!): Question
+  updateQuestion(id: ID!, input: QuestionInput): Question
+  deleteQuestion(id: ID!): ID
+
+  createUser(input: UserInput!): User
+  updateUser(id: ID!, input: UserInput!): User
+  deleteUser(id: ID!): ID
+}
+
+ type User {
+   id: ID!
+   login: String
+   email: String
+   name: String
+ }
+
+ type Test {
+   id: ID!
+   questions: [Question] 
+   language: String
+   hardest: String
+ }
+
+ type Question {
+   id: ID!
+   descript: String
+   answers: [Answer] 
+   hardest: String
+   language: String
+ }
+
+ type Answer {
+   id: ID!
+   descript: String
+   truth: Boolean
+ }
+
+input UserInput {
+  login: String
+  email: String
+  name: String
+}
+input AnswerInput {
+  descript: String
+  truth: Boolean
+}
+input QuestionInput {
+  descript: String
+  answers: [AnswerInput]
+  hardest: String
+  language: String
+}
+input TetstInput {
+  questions: [QuestionInput]
+  language: String
+  hardest: String
+}
+
+

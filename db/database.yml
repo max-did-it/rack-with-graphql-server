@@ -1,0 +1,13 @@
+development:
+  clients:
+    default:
+      database: gb_tests
+      hosts: 
+        - database:27017
+      # username: "root"
+      # password: "example"
+      # options:
+      #   auth_source: admin
+      #   auth_mech: :scrum
+      #   roles:
+      #     - 'admin'
